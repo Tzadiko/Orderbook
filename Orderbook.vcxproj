@@ -129,7 +129,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Orderbook.cpp" />
+    <ClCompile Include="Enumerations.ixx" />
+    <ClCompile Include="Globals.ixx" />
+    <ClCompile Include="LevelInfo.ixx" />
+    <ClCompile Include="Order.ixx" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Orderbook.ixx" />
+    <ClCompile Include="OrderbookLevelInfos.ixx" />
+    <ClCompile Include="OrderModify.ixx" />
+    <ClCompile Include="Trade.ixx" />
+    <ClCompile Include="TradeInfo.ixx" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
