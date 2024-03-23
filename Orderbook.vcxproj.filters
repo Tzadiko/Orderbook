@@ -15,8 +15,35 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Orderbook.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Orderbook.ixx">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelInfo.ixx">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Order.ixx">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OrderModify.ixx">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Trade.ixx">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TradeInfo.ixx">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Enumerations.ixx">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Globals.ixx">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OrderbookLevelInfos.ixx">
+      <Filter>Header Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
