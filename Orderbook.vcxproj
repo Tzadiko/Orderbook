@@ -133,6 +133,7 @@
     <ClCompile Include="Orderbook.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Constants.h" />
     <ClInclude Include="LevelInfo.h" />
     <ClInclude Include="Order.h" />
     <ClInclude Include="Orderbook.h" />
