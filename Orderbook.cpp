@@ -186,6 +186,8 @@ Trades Orderbook::MatchOrders()
 	Trades trades;
 	trades.reserve(orders_.size());
 
+	std::scoped_lock ordersLock{ ordersMutex_ }; //Introduce a lock guard to protect access to orders_
+
 	while (true)
 	{
 		if (bids_.empty() || asks_.empty())
