@@ -67,7 +67,7 @@ void Orderbook::CancelOrderInternal(OrderId orderId)
 	if (!orders_.contains(orderId))
 		return;
 
-	const auto& [order, iterator] = orders_.at(orderId);
+	const auto [order, iterator] = orders_.at(orderId);
 	orders_.erase(orderId);
 
 	if (order->GetSide() == Side::Sell)
@@ -197,7 +197,7 @@ Trades Orderbook::MatchOrders()
 		if (bidPrice < askPrice)
 			break;
 
-		while (bids.size() && asks.size())
+		while (!bids.empty() && !asks.empty())
 		{
 			auto bid = bids.front();
 			auto ask = asks.front();
@@ -219,17 +219,6 @@ Trades Orderbook::MatchOrders()
 				orders_.erase(ask->GetOrderId());
 			}
 
-			if (bids.empty())
-			{
-				bids_.erase(bidPrice);
-				data_.erase(bidPrice);
-			}
-
-			if (asks.empty())
-			{
-				asks_.erase(askPrice);
-				data_.erase(askPrice);
-			}
 
 			trades.push_back(Trade{
 				TradeInfo{ bid->GetOrderId(), bid->GetPrice(), quantity },
@@ -239,6 +228,18 @@ Trades Orderbook::MatchOrders()
 			OnOrderMatched(bid->GetPrice(), quantity, bid->IsFilled());
 			OnOrderMatched(ask->GetPrice(), quantity, ask->IsFilled());
 		}
+
+        if (bids.empty())
+        {
+            bids_.erase(bidPrice);
+            data_.erase(bidPrice);
+        }
+
+        if (asks.empty())
+        {
+            asks_.erase(askPrice);
+            data_.erase(askPrice);
+        }
 	}
 
 	if (!bids_.empty())
