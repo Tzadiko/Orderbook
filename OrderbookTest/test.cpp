@@ -219,6 +219,9 @@ public:
             }
             else
             {
+                if (!file.eof())
+                    throw std::logic_error("Result should only be specified at the end.");
+
                 Result result;
 
                 auto isValid = TryParseResult(line, result);
