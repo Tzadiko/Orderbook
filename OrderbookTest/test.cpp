@@ -104,45 +104,6 @@ private:
         return columns;
     }
 
-    Information GetAddAction(const std::vector<std::string_view>& arguments) const
-    {
-        Side side = ParseSide(arguments[0]);
-        OrderType orderType = ParseOrderType(arguments[1]);
-        Price price = ParsePrice(arguments[2]);
-        Quantity quantity = ParseQuantity(arguments[3]);
-        OrderId orderId = ParseOrderId(arguments[4]);
-
-        return Information{ 
-            .type_ = ActionType::Add, 
-            .orderType_ = orderType,
-            .side_ = side,
-            .price_ = price, 
-            .quantity_ = quantity, 
-            .orderId_ = orderId, };
-    }
-
-    Information GetCancelAction(const std::vector<std::string_view>& arguments) const
-    {
-        return Information{
-            .type_ = ActionType::Cancel,
-            .orderId_ = ParseOrderId(arguments[1]) };
-    }
-
-    Information GetModifyAction(const std::vector<std::string_view>& arguments) const
-    {
-        OrderId orderId = ParseOrderId(arguments[1]);
-        Side side = ParseSide(arguments[2]);
-        Price price = ParsePrice(arguments[3]);
-        Quantity quantity = ParseQuantity(arguments[4]);
-
-        return Information{ 
-            .type_ = ActionType::Modify,
-            .side_ = side,
-            .price_ = price,
-            .quantity_ = quantity,
-            .orderId_ = orderId };
-    }
-
     Side ParseSide(const std::string_view& str) const
     {
         if (str == "B")
