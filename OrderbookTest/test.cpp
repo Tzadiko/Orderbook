@@ -272,8 +272,10 @@ TEST_P(OrderbookTestsFixture, OrderbookTestSuite)
 
 INSTANTIATE_TEST_CASE_P(Tests, OrderbookTestsFixture, googletest::ValuesIn({
     "Match_GoodTillCancel.txt",
+    "Match_FillAndKill.txt",
     "Match_FillOrKill_Hit.txt",
     "Match_FillOrKill_Miss.txt",
     "Cancel_Success.txt",
-    "Modify_Side.txt"
+    "Modify_Side.txt",
+    "Match_Market.txt"
 }));
